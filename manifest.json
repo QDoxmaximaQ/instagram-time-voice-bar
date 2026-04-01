@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Instagram Ses ve süre Kontrolü",
+  "version": "1.0",
+  "description": "daha iyi instagram ses ve süre cubugu",
+  "icons": {
+    "16": "images/icon.png",
+    "48": "images/icon.png",
+    "128": "images/icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.instagram.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
