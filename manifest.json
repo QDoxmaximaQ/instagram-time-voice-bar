@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Instagram Voice and Time Bar",
-  "version": "1.0",
-  "description": "Enhanced audio and duration controls for Instagram videos.",
+  "name": "Instagram Ses ve süre Kontrolü",
+  "version": "2.0",
+  "description": "daha iyi instagram ses ve süre cubugu",
   "icons": {
     "16": "images/icon.png",
     "48": "images/icon.png",
@@ -10,8 +10,12 @@
   },
   "content_scripts": [
     {
-      "matches": ["*://*.instagram.com/*"],
-      "js": ["content.js"]
+      "matches": [
+        "*://*.instagram.com/*"
+      ],
+      "js": [
+        "content.js"
+      ]
     }
   ]
 }
