@@ -1,0 +1,17 @@
+{
+  "name": "doxmaxima-player",
+  "version": "3.0.0",
+  "description": "doxmaxima-player - Instagram için gelişmiş ses ve süre çubuğu Chrome eklentisi (Pro Modüler mimari)",
+  "scripts": {
+    "validate": "node -c src/core/state.js && node -c src/ui/formatters.js && node -c src/ui/icons.js && node -c src/ui/master-layer.js && node -c src/core/video-detector.js && node -c src/ui/time-bar.js && node -c src/ui/volume-bar.js && node -c src/ui/positioner.js && node -c src/ui/keyboard.js && node -c src/core/native-killer.js && node -c src/main.js && node -c popup/popup.js"
+  },
+  "keywords": [
+    "instagram",
+    "chrome-extension",
+    "volume-control",
+    "video-player",
+    "doxmaxima-player"
+  ],
+  "author": "QDoxmaximaQ",
+  "license": "MIT"
+}

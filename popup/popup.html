@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>doxmaxima-player</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- 1. HEADER (doxmaxima-player) -->
+        <header class="app-header">
+            <div class="brand-row">
+                <div class="logo-box">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="url(#brand-grad)">
+                        <defs>
+                            <linearGradient id="brand-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#00f2fe"/>
+                                <stop offset="50%" stop-color="#4facfe"/>
+                                <stop offset="100%" stop-color="#7000ff"/>
+                            </linearGradient>
+                        </defs>
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/>
+                    </svg>
+                </div>
+                <div class="brand-info">
+                    <h1 class="brand-title">doxmaxima-player</h1>
+                    <span class="badge-status"><span class="dot-pulse"></span> <span id="badge-version-text">v3.0 Aktif</span></span>
+                </div>
+            </div>
+            <p class="brand-tagline" id="text-tagline">Gelişmiş Instagram Medya Denetleyicisi</p>
+        </header>
+
+        <!-- DİL SEÇİMİ (Language) -->
+        <section class="card-section lang-section">
+            <div class="setting-row no-border">
+                <div class="setting-meta">
+                    <div class="icon-circle lang-icon">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                            <path d="M12.87 15.07l-2.54-2.51.03-.08c1.74-1.94 2.98-4.17 3.71-6.49H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/>
+                        </svg>
+                    </div>
+                    <div class="text-group">
+                        <span class="setting-name" id="text-lang-title">Arayüz Dili</span>
+                        <span class="setting-desc" id="text-lang-desc">Tercih ettiğiniz dili seçin</span>
+                    </div>
+                </div>
+                <div class="lang-select-wrapper">
+                    <select class="pro-select" id="select-lang">
+                        <option value="tr">🇹🇷 Türkçe</option>
+                        <option value="en">🇬🇧 English</option>
+                        <option value="ru">🇷🇺 Русский</option>
+                        <option value="de">🇩🇪 Deutsch</option>
+                        <option value="ja">🇯🇵 日本語</option>
+                        <option value="ko">🇰🇷 한국어</option>
+                        <option value="zh">🇨🇳 简体中文</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. ANA KONTROLLER (Açma / Kapatma Tuşları) -->
+        <section class="card-section">
+            <h2 class="section-label" id="text-module-label">MODÜL GÖRÜNÜRLÜĞÜ</h2>
+
+            <!-- Zaman Barı Kapatma Tuşu -->
+            <div class="setting-row">
+                <div class="setting-meta">
+                    <div class="icon-circle time-icon">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                            <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                        </svg>
+                    </div>
+                    <div class="text-group">
+                        <span class="setting-name" id="text-time-bar">Zaman Barı</span>
+                        <span class="setting-desc" id="text-time-bar-desc">Oynatma ve sarma çubuğu</span>
+                    </div>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" id="toggle-time-bar" checked>
+                    <span class="slider-toggle"></span>
+                </label>
+            </div>
+
+            <!-- Ses Barı Kapatma Tuşu -->
+            <div class="setting-row">
+                <div class="setting-meta">
+                    <div class="icon-circle vol-icon">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+                        </svg>
+                    </div>
+                    <div class="text-group">
+                        <span class="setting-name" id="text-vol-bar">Ses Barı</span>
+                        <span class="setting-desc" id="text-vol-bar-desc">Dikey ses seviyesi ve tekerlek</span>
+                    </div>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" id="toggle-vol-bar" checked>
+                    <span class="slider-toggle"></span>
+                </label>
+            </div>
+
+            <!-- Klavye Kısayolları -->
+            <div class="setting-row">
+                <div class="setting-meta">
+                    <div class="icon-circle kb-icon">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                            <path d="M20 5H4c-1.1 0-1.99.9-1.99 2L2 17c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm-9 3h2v2h-2V8zm0 3h2v2h-2v-2zM8 8h2v2H8V8zm0 3h2v2H8v-2zm-1 2H5v-2h2v2zm0-3H5V8h2v2zm8 7H9v-2h6v2zm1-4h-2v-2h2v2zm0-3h-2V8h2v2zm3 3h-2v-2h2v2zm0-3h-2V8h2v2z"/>
+                        </svg>
+                    </div>
+                    <div class="text-group">
+                        <span class="setting-name" id="text-kb">Klavye Kısayolları</span>
+                        <span class="setting-desc" id="text-kb-desc">M (Mute), Oklar (Ses/Sarma)</span>
+                    </div>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" id="toggle-keyboard" checked>
+                    <span class="slider-toggle"></span>
+                </label>
+            </div>
+        </section>
+
+        <!-- 3. CANLI ÖNİZLEME (Live Mini Preview) -->
+        <section class="card-section preview-card">
+            <div class="preview-header">
+                <span class="section-label" id="text-preview-label">CANLI ÖNİZLEME</span>
+                <span class="preview-tag" id="text-preview-tag">Gerçek Zamanlı</span>
+            </div>
+            <div class="mock-stage" id="mock-stage">
+                <!-- Mini Time Bar Preview -->
+                <div class="mock-time-bar" id="preview-time-bar">
+                    <span class="mock-time-label">01:24</span>
+                    <div class="mock-slider-track">
+                        <div class="mock-slider-fill" id="preview-time-fill"></div>
+                        <div class="mock-slider-thumb" id="preview-time-thumb"></div>
+                    </div>
+                </div>
+                <!-- Mini Vol Bar Preview -->
+                <div class="mock-vol-bar" id="preview-vol-bar">
+                    <div class="mock-v-track">
+                        <div class="mock-v-fill" id="preview-vol-fill"></div>
+                    </div>
+                    <span class="mock-vol-label">70%</span>
+                    <div class="mock-vol-icon">
+                        <svg viewBox="0 0 24 24" width="13" height="13" fill="#fff"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. ÖZELLEŞTİRME SEÇENEKLERİ (Temalar, Cam Efekti, Kalınlık) -->
+        <section class="card-section">
+            <h2 class="section-label" id="text-custom-label">ÖZELLEŞTİRME SEÇENEKLERİ</h2>
+
+            <!-- Tema Seçimi -->
+            <div class="custom-group">
+                <span class="custom-title" id="text-theme-title">Vurgu Rengi / Tema</span>
+                <div class="theme-palette" id="theme-selector">
+                    <button class="theme-btn active" data-theme="white" title="Klasik Beyaz Glow">
+                        <span class="theme-dot" style="background:#ffffff; box-shadow:0 0 8px rgba(255,255,255,0.8);"></span>
+                        <span class="theme-name" id="theme-name-white">Beyaz</span>
+                    </button>
+                    <button class="theme-btn" data-theme="sunset" title="Instagram Sunset">
+                        <span class="theme-dot" style="background:linear-gradient(45deg, #f09433, #dc2743, #bc1888);"></span>
+                        <span class="theme-name" id="theme-name-sunset">Sunset</span>
+                    </button>
+                    <button class="theme-btn" data-theme="cyan" title="Neon Cyberpunk">
+                        <span class="theme-dot" style="background:#00f2fe; box-shadow:0 0 8px #00f2fe;"></span>
+                        <span class="theme-name" id="theme-name-cyan">Neon</span>
+                    </button>
+                    <button class="theme-btn" data-theme="emerald" title="Zümrüt Yeşil">
+                        <span class="theme-dot" style="background:#00e676; box-shadow:0 0 8px #00e676;"></span>
+                        <span class="theme-name" id="theme-name-emerald">Zümrüt</span>
+                    </button>
+                    <button class="theme-btn" data-theme="gold" title="Altın Lüks">
+                        <span class="theme-dot" style="background:#ffd700; box-shadow:0 0 8px #ffd700;"></span>
+                        <span class="theme-name" id="theme-name-gold">Altın</span>
+                    </button>
+                    <button class="theme-btn" data-theme="custom" id="btn-theme-custom" title="Özel Renk veya Gradyan">
+                        <span class="theme-dot" id="custom-theme-dot" style="background:#ff007f; box-shadow:0 0 8px #ff007f;"></span>
+                        <span class="theme-name" id="theme-name-custom">Özel</span>
+                    </button>
+                </div>
+
+                <!-- Özel Renk / Gradyan Seçici Kutusu -->
+                <div class="custom-color-box" id="custom-color-box">
+                    <div class="custom-color-header">
+                        <span class="custom-subtitle" id="text-custom-color-title">Özel Vurgu Rengi</span>
+                        <div class="mode-toggles">
+                            <button type="button" class="mode-btn active" id="btn-mode-solid">Tek Renk</button>
+                            <button type="button" class="mode-btn" id="btn-mode-gradient">Gradyan</button>
+                        </div>
+                    </div>
+                    <div class="color-pickers-row">
+                        <div class="color-picker-item" id="picker-item-1">
+                            <label class="picker-label" id="label-color-1">Renk</label>
+                            <div class="picker-wrap">
+                                <input type="color" id="color-picker-1" value="#ff007f">
+                                <span class="color-hex" id="hex-color-1">#FF007F</span>
+                            </div>
+                        </div>
+                        <div class="color-picker-item" id="picker-item-2" style="display: none;">
+                            <label class="picker-label" id="label-color-2">2. Renk</label>
+                            <div class="picker-wrap">
+                                <input type="color" id="color-picker-2" value="#7928ca">
+                                <span class="color-hex" id="hex-color-2">#7928CA</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Cam Efekti Bulanıklık ve Opaklık -->
+            <div class="custom-group">
+                <div class="range-header">
+                    <span class="custom-title" id="text-opacity-title">Cam Saydamlığı & Kenarlık Opaklığı</span>
+                    <span class="range-val" id="val-opacity">%72</span>
+                </div>
+                <input type="range" class="pro-range" id="range-opacity" min="0" max="95" value="72">
+            </div>
+
+            <div class="custom-group">
+                <div class="range-header">
+                    <span class="custom-title" id="text-blur-title">Bulanıklık Gücü (Backdrop Blur)</span>
+                    <span class="range-val" id="val-blur">12px</span>
+                </div>
+                <input type="range" class="pro-range" id="range-blur" min="0" max="24" value="12">
+            </div>
+
+            <!-- Bar Kalınlığı -->
+            <div class="custom-group">
+                <span class="custom-title" id="text-thickness-title">Çubuk Kalınlığı</span>
+                <div class="segmented-control" id="thickness-selector">
+                    <button class="seg-btn" data-val="3" id="thick-val-3">İnce (3px)</button>
+                    <button class="seg-btn active" data-val="5" id="thick-val-5">Normal (5px)</button>
+                    <button class="seg-btn" data-val="7" id="thick-val-7">Kalın (7px)</button>
+                </div>
+            </div>
+
+            <!-- Köşe Yuvarlaklığı -->
+            <div class="custom-group">
+                <span class="custom-title" id="text-radius-title">Köşe Yuvarlaklığı</span>
+                <div class="segmented-control" id="radius-selector">
+                    <button class="seg-btn" data-val="6" id="radius-val-6">Hafif (6px)</button>
+                    <button class="seg-btn active" data-val="12" id="radius-val-12">Modern (12px)</button>
+                    <button class="seg-btn" data-val="22" id="radius-val-22">Hap (22px)</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. FOOTER (Sıfırla & Bilgi) -->
+        <footer class="app-footer">
+            <button class="btn-reset" id="btn-reset">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+                    <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+                </svg>
+                <span id="text-reset-btn">Varsayılan Ayarlara Dön</span>
+            </button>
+        </footer>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>

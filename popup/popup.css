@@ -1,0 +1,730 @@
+/* ========================================================= */
+/*            doxmaxima-player MODERN PRO UI STYLES          */
+/* ========================================================= */
+
+:root {
+    --bg-base: #0d0e12;
+    --card-bg: rgba(22, 24, 32, 0.7);
+    --border-subtle: rgba(255, 255, 255, 0.1);
+    --border-focus: rgba(255, 255, 255, 0.25);
+    --text-primary: #f0f2f5;
+    --text-secondary: #8c92a4;
+    --accent-glow: #00f2fe;
+    --accent-gradient: linear-gradient(135deg, #00f2fe 0%, #4facfe 50%, #7000ff 100%);
+    --success: #00e676;
+    --danger: #ff3366;
+    --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+
+body {
+    width: 380px;
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-family: var(--font);
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+/* Scrollbar */
+body::-webkit-scrollbar {
+    width: 5px;
+}
+body::-webkit-scrollbar-track {
+    background: transparent;
+}
+body::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+}
+
+.app-container {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* ========================================================= */
+/*                       1. HEADER                           */
+/* ========================================================= */
+.app-header {
+    background: linear-gradient(180deg, rgba(30, 34, 48, 0.6) 0%, rgba(18, 20, 28, 0.4) 100%);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 14px 16px;
+    backdrop-filter: blur(16px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.brand-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-box {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: rgba(0, 242, 254, 0.1);
+    border: 1px solid rgba(0, 242, 254, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 16px rgba(0, 242, 254, 0.25);
+}
+
+.brand-info {
+    flex: 1;
+}
+
+.brand-title {
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+    background: linear-gradient(135deg, #ffffff 30%, #a5b4fc 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.badge-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--success);
+    background: rgba(0, 230, 118, 0.12);
+    padding: 2px 8px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 230, 118, 0.3);
+    margin-top: 2px;
+}
+
+.dot-pulse {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--success);
+    box-shadow: 0 0 8px var(--success);
+    animation: pulse 1.8s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.brand-tagline {
+    margin-top: 8px;
+    font-size: 11px;
+    color: var(--text-secondary);
+}
+
+/* ========================================================= */
+/*                      CARD SECTIONS                        */
+/* ========================================================= */
+.card-section {
+    background: var(--card-bg);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 14px;
+    backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.section-label {
+    font-size: 11px;
+    font-weight: 800;
+    color: #636b83;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+/* ========================================================= */
+/*                   SETTING ROWS & TOGGLES                  */
+/* ========================================================= */
+.setting-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+}
+
+.setting-row:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.setting-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.icon-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.time-icon { color: #60a5fa; background: rgba(96, 165, 250, 0.12); }
+.vol-icon { color: #f472b6; background: rgba(244, 114, 182, 0.12); }
+.kb-icon { color: #a78bfa; background: rgba(167, 139, 250, 0.12); }
+
+.text-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.setting-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.setting-desc {
+    font-size: 11px;
+    color: var(--text-secondary);
+}
+
+/* iOS Style Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider-toggle {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    border-radius: 24px;
+}
+
+.slider-toggle:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 2px;
+    bottom: 2px;
+    background-color: #ffffff;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+input:checked + .slider-toggle {
+    background: linear-gradient(135deg, #00c853, #00e676);
+    border-color: #00e676;
+    box-shadow: 0 0 10px rgba(0, 230, 118, 0.4);
+}
+
+input:checked + .slider-toggle:before {
+    transform: translateX(20px);
+}
+
+/* ========================================================= */
+/*                   3. CANLI ÖNİZLEME                       */
+/* ========================================================= */
+.preview-card {
+    background: linear-gradient(180deg, rgba(20, 22, 30, 0.85) 0%, rgba(12, 14, 20, 0.95) 100%);
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+.preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.preview-tag {
+    font-size: 10px;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.08);
+    color: #94a3b8;
+    padding: 2px 6px;
+    border-radius: 6px;
+}
+
+.mock-stage {
+    position: relative;
+    height: 116px;
+    background: #111 url('../images/Itachi-header.jpg') center center / cover no-repeat;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    padding: 10px;
+    overflow: hidden;
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Mini Mock Time Bar */
+.mock-time-bar {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 52px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(18, 18, 22, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 10px;
+    padding: 5px 10px;
+    backdrop-filter: blur(8px);
+    transition: opacity 0.2s ease;
+}
+
+.mock-time-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #fff;
+    font-variant-numeric: tabular-nums;
+}
+
+.mock-slider-track {
+    flex: 1;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 6px;
+    position: relative;
+    overflow: visible;
+}
+
+.mock-slider-fill {
+    height: 100%;
+    width: 45%;
+    background: #ffffff;
+    border-radius: 6px;
+}
+
+.mock-slider-thumb {
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Mini Mock Volume Bar - Her zaman sağ köşede sabit */
+.mock-vol-bar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 4px;
+    background: rgba(18, 18, 22, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 10px;
+    padding: 6px 4px;
+    width: 32px;
+    height: 84px;
+    backdrop-filter: blur(8px);
+    transition: opacity 0.2s ease;
+}
+
+.mock-v-track {
+    width: 4px;
+    height: 38px;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+.mock-v-fill {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70%;
+    background: #ffffff;
+}
+
+.mock-vol-label {
+    font-size: 9px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.mock-vol-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ========================================================= */
+/*                 4. ÖZELLEŞTİRME SEÇENEKLERİ               */
+/* ========================================================= */
+.custom-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.custom-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: #cbd5e1;
+}
+
+/* Renk Paleti */
+.theme-palette {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 5px;
+}
+
+.theme-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 6px 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #94a3b8;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.theme-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.theme-btn.active {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #38bdf8;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.25);
+}
+
+.theme-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+}
+
+/* Özel Renk / Gradyan Paneli */
+.custom-color-box {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: all 0.2s ease;
+    margin-top: 4px;
+}
+
+.custom-color-box.active-custom {
+    border-color: rgba(56, 189, 248, 0.4);
+    background: rgba(56, 189, 248, 0.04);
+}
+
+.custom-color-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.custom-subtitle {
+    font-size: 11px;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.mode-toggles {
+    display: flex;
+    background: rgba(0, 0, 0, 0.35);
+    padding: 2px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mode-btn {
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.mode-btn.active {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.color-pickers-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.color-picker-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.picker-label {
+    font-size: 10px;
+    color: #64748b;
+    font-weight: 600;
+}
+
+.picker-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+
+.picker-wrap input[type="color"] {
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 4px;
+    cursor: pointer;
+    background: transparent;
+    padding: 0;
+}
+
+.picker-wrap input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+.picker-wrap input[type="color"]::-webkit-color-swatch {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+}
+
+.color-hex {
+    font-size: 11px;
+    font-family: monospace;
+    font-weight: 700;
+    color: #f1f5f9;
+}
+
+/* Range Slider */
+.range-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.range-val {
+    font-size: 11px;
+    font-weight: 700;
+    color: #38bdf8;
+    font-variant-numeric: tabular-nums;
+}
+
+.pro-range {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    outline: none;
+    cursor: pointer;
+}
+
+.pro-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+
+.pro-range::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+/* Segmented Buttons */
+.segmented-control {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    padding: 3px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.seg-btn {
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    padding: 6px 0;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.seg-btn:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.seg-btn.active {
+    background: rgba(255, 255, 255, 0.16);
+    color: #fff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* ========================================================= */
+/*                       5. FOOTER                           */
+/* ========================================================= */
+.app-footer {
+    display: flex;
+    justify-content: center;
+    padding-top: 4px;
+}
+
+.btn-reset {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #94a3b8;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.btn-reset:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* ========================================================= */
+/*                   6. DİL SEÇİCİ (i18n)                    */
+/* ========================================================= */
+.lang-section {
+    padding: 10px 14px;
+}
+
+.setting-row.no-border {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.lang-icon {
+    background: rgba(56, 189, 248, 0.15);
+    color: #38bdf8;
+}
+
+.lang-select-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.pro-select {
+    appearance: none;
+    -webkit-appearance: none;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 8px;
+    color: #f1f5f9;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 6px 28px 6px 12px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.pro-select:hover, .pro-select:focus {
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(56, 189, 248, 0.5);
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
+}
+
+.lang-select-wrapper::after {
+    content: "▾";
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 10px;
+    color: #94a3b8;
+    pointer-events: none;
+}
+
+.pro-select option {
+    background: #18181b;
+    color: #f1f5f9;
+}

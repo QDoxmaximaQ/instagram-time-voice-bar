@@ -1,8 +1,24 @@
 {
   "manifest_version": 3,
-  "name": "Instagram Ses ve süre Kontrolü",
-  "version": "1.0",
-  "description": "daha iyi instagram ses ve süre cubugu",
+  "name": "doxmaxima-player (Instagram Ses ve Süre)",
+  "version": "3.0.0",
+  "description": "doxmaxima-player - Instagram için gelişmiş ses, süre ve medya denetleyicisi",
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "*://*.instagram.com/*"
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "doxmaxima-player Ayarları",
+    "default_icon": {
+      "16": "images/icon.png",
+      "48": "images/icon.png",
+      "128": "images/icon.png"
+    }
+  },
   "icons": {
     "16": "images/icon.png",
     "48": "images/icon.png",
@@ -11,7 +27,20 @@
   "content_scripts": [
     {
       "matches": ["*://*.instagram.com/*"],
-      "js": ["content.js"]
+      "css": ["css/style.css"],
+      "js": [
+        "src/core/state.js",
+        "src/ui/formatters.js",
+        "src/ui/icons.js",
+        "src/ui/master-layer.js",
+        "src/core/video-detector.js",
+        "src/ui/time-bar.js",
+        "src/ui/volume-bar.js",
+        "src/ui/positioner.js",
+        "src/ui/keyboard.js",
+        "src/core/native-killer.js",
+        "src/main.js"
+      ]
     }
   ]
 }
